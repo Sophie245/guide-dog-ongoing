@@ -92,3 +92,4 @@ const styles = StyleSheet.create({
 });
 
 export default Index; // Export the Index component
+
