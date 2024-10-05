@@ -1,44 +1,50 @@
 // _layout.jsx
-import { Tabs } from 'expo-router'; // Importing Tabs component from expo-router
-import TabBar from '../components/TabBar'; // Adjust the import path
+import { useState } from 'react'; // Import useState to manage state
+import { Tabs } from 'expo-router'; 
+import TabBar from '../components/TabBar'; 
 
 const _layout = () => {
+  const [detectionLog, setDetectionLog] = useState([]); // State to hold the detection log
+
   return (
     <Tabs
-      tabBar={(props) => <TabBar {...props} />} // Use the custom TabBar
+      tabBar={(props) => <TabBar {...props} />}
     >
       <Tabs.Screen
-        name="index" // Name for the Home tab
+        name="index"
         options={{
-          title: "Home" // Title for the tab
+          title: "Home"
         }}
       />
       <Tabs.Screen
-        name="explore" // Name for the Explore tab
+        name="explore"
         options={{
-          title: "Explore" // Title for the tab
+          title: "Photo"
         }}
       />
       <Tabs.Screen
-        name="create" // Name for the Create tab
+        name="create"
         options={{
-          title: "Create" // More descriptive title for the tab
+          title: "Navigation"
+        }}
+        children={() => <Create setDetectionLog={setDetectionLog} />} // Pass setDetectionLog to Create
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Tutorial"
         }}
       />
       <Tabs.Screen
-        name="profile" // Name for the Profile tab
+        name="misc"
         options={{
-          title: "Profile" // Title for the tab
+          title: "Notification"
         }}
-      />
-      <Tabs.Screen
-        name="misc" // Name for the Misc tab
-        options={{
-          title: "Miscellaneous" // Title for the tab
-        }}
+        children={() => <Misc detectionLog={detectionLog} />} // Pass detectionLog to Misc
       />
     </Tabs>
   );
 };
 
-export default _layout; // Export the _layout component
+export default _layout;
+
