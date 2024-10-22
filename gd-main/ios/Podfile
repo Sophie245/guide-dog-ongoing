@@ -1,0 +1,17 @@
+platform :ios, '11.0'
+project 'guidedog/guidedog.xcodeproj'
+
+target 'guidedog' do
+  # Pods for guidedog
+  pod 'ExpoModulesCore', :path => '../node_modules/expo-modules-core'
+  pod 'React', :path => '../node_modules/react-native'
+  pod 'react-native-reanimated', :path => '../node_modules/react-native-reanimated'
+  pod 'react-native-screens', :path => '../node_modules/react-native-screens'
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+  pod 'VisionCamera', :path => '../node_modules/react-native-vision-camera'
+  pod 'react-native-voice', :path => '../node_modules/react-native-voice'
+  pod 'react-native-worklets-core', :path => '../node_modules/react-native-worklets-core'  # Add this line
+  pod 'react-native-vision-camera-text-recognition', :path => '../node_modues/react-native-vision-camera-text-recognition'
+  pod 'react-native-vision-camera-image-labeler', :path => '..node_modules/react-native-vision-camera-image-labeler'
+  # Add any other dependencies here
+end
